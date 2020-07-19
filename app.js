@@ -28,11 +28,14 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.use(bodyParser.urlencoded({ extended: true }));
 mongoose
-  .connect("mongodb://localhost/kapa", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    "mongodb+srv://jason2004:sharma2004@cluster0.ugnh0.mongodb.net/kapa?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() => {
     console.log("Connected to DB");
   })
