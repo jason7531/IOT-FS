@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+    <div id="header" class="jumbotron text-center">
+        <h1 class="display-3">KAPA Online Mart</h1>
+        <p class="lead">Get all Sports Accessories at one place, easily delivered</p>
+        <form action="/index" method="POST">
+            <button class="btn bnt-info">Create Inventory</button>
+        </form>
+        <a href="/inventory" class="btn btn-success">Your Inventory</a>
+        <a href="" class="btn btn-danger">Your Wishlist</a>
+    </div>
+    <div id="gallery">
+        <div class="container">
+            <div class="row">
+                <% products.forEach(function(product) { %>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card">
+                            <img src="<%= product.image %>" class="card-img-top" alt="" />
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">
+                                    <%= product.name %>
+                                </p>
+                                <a href="/inventory" class="btn btn-outline-success btn-sm">Add to cart</a
+            >
+            <a href="" class="btn btn-outline-danger btn-sm"
+              ><i class="fa fa-heart-o" aria-hidden="true"></i
+            ></a>
+                                <a href="/index/<%= product._id %>" class="btn btn-outline-info btn-sm"><i class="fa fa-info" aria-hidden="true"></i
+            ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer") %>

@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+    <div class="container">
+        <div class="row">
+            <% inventories.forEach(function(inventory) { %>
+                <div class="card">
+                    <h3>Inventory by
+                        <%= inventory.author.username %>
+                    </h3>
+                    <a href="/inventory/<%= inventory._id %>" class="btn btn-info">View</a>
+                </div>
+
+                <% }) %>
+        </div>
+    </div>
+    <%- include("partials/footer") %>

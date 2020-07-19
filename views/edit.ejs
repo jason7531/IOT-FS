@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+    <div class="container">
+        <form action="/inventory/<%= inventory._id %>?_method=PUT" method="POST">
+            <h1 class="header">
+                Add to
+                <%= inventory.author.username %> Inventory
+            </h1>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Quantity to be puchased</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+            </div>
+            <div class="form-group">
+                <input type="text" name="product[name]" id="" />
+            </div>
+            <button class="btn btn-success btn-sm">Submit</button>
+        </form>
+    </div>
+
+    <%- include("partials/footer") %>
