@@ -11,6 +11,7 @@ let passport = require("passport"),
 let flash = require("connect-flash");
 let middleware = require("./middleware");
 let seedDB = require("./seeds");
+const PORT = process.env.PORT || 3000;
 // seedDB();
 app.use(methodOverride("_method"));
 app.use(flash());
@@ -193,6 +194,6 @@ app.get("/logout", function (req, res) {
 });
 //Middleware
 
-app.listen("3000", function () {
+app.listen(PORT, function () {
   console.log("Server Started");
 });
