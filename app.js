@@ -11,7 +11,7 @@ let passport = require("passport"),
 let flash = require("connect-flash");
 let middleware = require("./middleware");
 let seedDB = require("./seeds");
-seedDB();
+// seedDB();
 app.use(methodOverride("_method"));
 app.use(flash());
 app.use(
