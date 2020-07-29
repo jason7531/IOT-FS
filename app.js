@@ -1,48 +1,22 @@
 let express = require("express");
 let bodyParser = require("body-parser");
-let mongoose = require("mongoose");
+// Mongoose requirement removed
 let methodOverride = require("method-override");
-let Product = require("./models/products");
-let Inventory = require("./models/inventory");
+
 let app = express();
-let passport = require("passport"),
-  localStrategy = require("passport-local"),
-  User = require("./models/user");
+// Removed Model DB Import
+// Removed Passport JS
 let flash = require("connect-flash");
 let middleware = require("./middleware");
 let seedDB = require("./seeds");
 const PORT = process.env.PORT || 3000;
-// seedDB();
+// Seed DB Removed
 app.use(methodOverride("_method"));
 app.use(flash());
-app.use(
-  require("express-session")({
-    secret: "Jason is a good developer",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// Removed Express Session
+// Passport Properties Removed
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose
-  .connect(
-    "mongodb+srv://jason2004:sharma2004@cluster0.ugnh0.mongodb.net/kapa?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    }
-  )
-  .then(() => {
-    console.log("Connected to DB");
-  })
-  .catch((err) => {
-    console.log("ERROR: ", err.message);
-  });
+// removed Mongo Atlas connection
 
 app.set("view engine", "ejs");
 app.use(function (req, res, next) {
@@ -192,7 +166,6 @@ app.get("/logout", function (req, res) {
   req.flash("success", "Logged you out");
   res.redirect("/index");
 });
-//Middleware
 
 app.listen(PORT, function () {
   console.log("Server Started");
